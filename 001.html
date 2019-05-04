@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang='en'>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    <style>
+        #app {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        {{msg}}
+        {{count}}
+        {{(count + 1)*10}}
+        <div v-html="template">
+
+        </div>
+        <a v-bind:href="url">baidu</a>
+        <button v-on:click='submit()'>111</button>
+
+        <div v-for='item in list'>{{item}}</div>
+        <div v-for='item in list2'>{{item.a}}</div>
+
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: "hello",
+                count: 0,
+                template: ' <div>hello world</div>',
+                url: 'https://baidu.com',
+                list:[1,2,3,4],
+                list2:[{a:111,b:222},{a:333,b:444}]
+            },
+            methods: {
+                submit() {
+                    this.count++
+                },
+                watch: {
+                    msg: function (newval, oldval) {
+                        console.log(newval, oldval)
+
+
+                    }
+                },
+                computed: {
+                    msg1: function () {
+                        return 'computed' + this.msg
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
