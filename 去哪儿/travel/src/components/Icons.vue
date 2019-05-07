@@ -102,6 +102,8 @@ export default {
   padding-bottom: 50%;
   //   background: green;
 }
+.icons {
+    margin-top: .1rem;
 
 .icon {
   float: left;
@@ -146,5 +148,6 @@ export default {
     white-space: nowrap;
     text-overflow: ellipsis;
   }
+}
 }
 </style>
