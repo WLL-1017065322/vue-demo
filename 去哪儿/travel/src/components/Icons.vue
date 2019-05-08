@@ -1,10 +1,10 @@
 <template>
   <div class="icons">
-    <swiper>
+    <swiper :options="swiperOption">
       <swiper-slide v-for="(page,index) in pages" :key="index">
         <div class="icon" v-for="item in page" :key="item.id">
           <div class="icon-img">
-            <img class="icon-img-content" :src="item.imgSrc" alt>
+            <img class="icon-img-content" :src="item.imgUrl" alt>
           </div>
 
           <p class="icon-desc">{{item.desc}}</p>
@@ -18,71 +18,76 @@
 <script>
 export default {
   name: "HomeIcons",
+  props: {
+    list: Array
+  },
   data() {
     return {
-      imgLists: [
-        {
-          id: "1",
-          desc: "景点门票",
-          imgSrc:
-            "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png"
-        },
-        {
-          id: "2",
-          desc: "景点门票",
-          imgSrc:
-            "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png"
-        },
-        {
-          id: "3",
-          desc: "景点门票",
-          imgSrc:
-            "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png"
-        },
-        {
-          id: "4",
-          desc: "景点门票",
-          imgSrc:
-            "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png"
-        },
-
-        {
-          id: "5",
-          desc: "景点门票",
-          imgSrc:
-            "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png"
-        },
-        {
-          id: "6",
-          desc: "景点门票",
-          imgSrc:
-            "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png"
-        },
-        {
-          id: "7",
-          desc: "景点门票",
-          imgSrc:
-            "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png"
-        },
-        {
-          id: "8",
-          desc: "景点门票",
-          imgSrc:
-            "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png"
-        },
-        {
-          id: "9",
-          desc: "景点门票",
-          imgSrc:
-            "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png"
-        }
-      ]
+      swiperOption: {
+        autoplay:false
+      }
+      // imgLists: [
+      //   {
+      //     id: "1",
+      //     desc: "景点门票",
+      //     imgSrc:
+      //       "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png"
+      //   },
+      //   {
+      //     id: "2",
+      //     desc: "景点门票",
+      //     imgSrc:
+      //       "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png"
+      //   },
+      //   {
+      //     id: "3",
+      //     desc: "景点门票",
+      //     imgSrc:
+      //       "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png"
+      //   },
+      //   {
+      //     id: "4",
+      //     desc: "景点门票",
+      //     imgSrc:
+      //       "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png"
+      //   },
+      //   {
+      //     id: "5",
+      //     desc: "景点门票",
+      //     imgSrc:
+      //       "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png"
+      //   },
+      //   {
+      //     id: "6",
+      //     desc: "景点门票",
+      //     imgSrc:
+      //       "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png"
+      //   },
+      //   {
+      //     id: "7",
+      //     desc: "景点门票",
+      //     imgSrc:
+      //       "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png"
+      //   },
+      //   {
+      //     id: "8",
+      //     desc: "景点门票",
+      //     imgSrc:
+      //       "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png"
+      //   },
+      //   {
+      //     id: "9",
+      //     desc: "景点门票",
+      //     imgSrc:
+      //       "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png"
+      //   }
+      // ]
     };
   },
   computed: {
     pages() {
       const pages = [];
-      this.imgLists.forEach((item, index) => {
+      this.list.forEach((item, index) => {
         const page = Math.floor(index / 8);
         if (!pages[page]) {
           pages[page] = [];
@@ -103,51 +108,51 @@ export default {
   //   background: green;
 }
 .icons {
-    margin-top: .1rem;
+  margin-top: 0.1rem;
 
-.icon {
-  float: left;
-  width: 25%;
-  overflow: hidden;
-  padding-bottom: 25%;
-  // background: red;
-  position: relative;
-  // aaa
-  height: 0;
-  .icon-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0.44rem;
-    //   background-color: blue;
+  .icon {
+    float: left;
+    width: 25%;
+    overflow: hidden;
+    padding-bottom: 25%;
+    // background: red;
+    position: relative;
+    // aaa
+    height: 0;
+    .icon-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0.44rem;
+      //   background-color: blue;
 
-    box-sizing: border-box;
-    //   background: blue;
-    padding: 0.1rem;
-    .icon-img-content {
-      height: 100%;
-      display: block;
-      margin: 0 auto;
-      height: 100%;
+      box-sizing: border-box;
+      //   background: blue;
+      padding: 0.1rem;
+      .icon-img-content {
+        height: 100%;
+        display: block;
+        margin: 0 auto;
+        height: 100%;
+      }
+    }
+    .icon-desc {
+      position: absolute;
+
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 0.44rem;
+      line-height: 0.44rem;
+      color: $darkTextColor;
+      text-align: center;
+
+      //文字多省略
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
   }
-  .icon-desc {
-    position: absolute;
-
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 0.44rem;
-    line-height: 0.44rem;
-    color: $darkTextColor;
-    text-align: center;
-
-    //文字多省略
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
-}
 }
 </style>

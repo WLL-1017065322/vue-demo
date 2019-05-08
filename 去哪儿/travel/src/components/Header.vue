@@ -7,7 +7,8 @@
             <span class="iconfont">&#xe632;</span>
             内容
         </div>
-        <div class="header-right">城市
+        <div class="header-right">
+            {{this.city}}
             <span class="iconfont arrow-icon">&#xe64a;</span>
         </div>
     </div>
@@ -15,6 +16,9 @@
 <script>
 export default {
   name: 'HomeHeader',
+  props :{
+      city: String
+  }
 };
 </script>
 <style scoped lang="scss">
