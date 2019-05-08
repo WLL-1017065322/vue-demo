@@ -3,11 +3,11 @@
     <div class="search">
       <input type="text" placeholder="输入城市名或者拼音" class="search-input">
     </div>
-    <div class="search-content">
+    <!-- <div class="search-content">
       <ul>
         <li></li>
       </ul>
-    </div>
+    </div> -->
   </div>
 </template>
 <script>
