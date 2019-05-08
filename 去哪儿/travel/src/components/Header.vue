@@ -7,10 +7,12 @@
             <span class="iconfont">&#xe632;</span>
             内容
         </div>
+        <router-link to='/city'>
         <div class="header-right">
-            {{this.city}}
-            <span class="iconfont arrow-icon">&#xe64a;</span>
+            {{this.city}}1111
+        <span class="iconfont arrow-icon">&#xe64a;</span>
         </div>
+        </router-link>
     </div>
 </template>
 <script>
@@ -54,12 +56,15 @@ export default {
         width: 1.24rem;
         float: right;
         text-align: center;
+        color: #fff;
+
 
          height: .86rem;
         line-height: .86rem;
         .arrow-icon {
             font-size: .24rem;
             margin-left: -.04rem;
+            color:#fff;
         }
 
     }
