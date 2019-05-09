@@ -12,15 +12,15 @@
         </div>
       </li>
     </ul>
- 
+
 
   </div>
 </template>
 <script>
 export default {
-  name: "HomeRecommend",
-   props :{
-      list: Array
+  name: 'HomeRecommend',
+  props: {
+    list: Array,
   },
   data() {
     return {
@@ -55,7 +55,7 @@ export default {
       //   }
       // ]
     };
-  }
+  },
 };
 </script>
 <style lang="scss" scoped>
@@ -79,12 +79,12 @@ export default {
   .item-info {
     flex: 1;
     padding: 0.1rem;
-  
+
     .item-title {
       line-height: 0.54rem;
       font-size: 0.32rem;
       text-align: left;
-   
+
 
       overflow: hidden;
       white-space: nowrap;
@@ -106,7 +106,7 @@ export default {
       padding: 0 0.2rem;
       border-radius: 0.06rem;
       color: #fff;
-      
+
     }
   }
 }

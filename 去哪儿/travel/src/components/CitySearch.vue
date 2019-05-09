@@ -3,33 +3,47 @@
     <div class="search">
       <input type="text" placeholder="输入城市名或者拼音" class="search-input" v-model="keyword">
     </div>
-    <div class="search-content"  v-show="keyword" ref="search">
+    <div class="search-content" v-show="keyword" ref="search">
       <ul>
-        <li class="search-item border-bottom" v-for="item in list" :key="item.id">{{item.name}}</li>
-        <li class="search-item border-bottom" v-show="hasNoData">
-          没有找到匹配数据
-        </li>
+        <li
+          class="search-item border-bottom"
+          v-for="item in list"
+          :key="item.id"
+          @click="handleCityClick(item.name)"
+        >{{item.name}}</li>
+        <li class="search-item border-bottom" v-show="hasNoData">没有找到匹配数据</li>
       </ul>
     </div>
   </div>
 </template>
 <script>
+import Bscroll from 'better-scroll'
+import { mapMutations } from 'vuex'
 export default {
-  name: "CitySearch",
+  name: 'CitySearch',
   props: {
-    cities: Object
+    cities: Object,
   },
   data() {
     return {
-      keyword: "",
+      keyword: '',
       list: [],
-      timer: null
+      timer: null,
     };
   },
+  methods: {
+    handleCityClick(city) {
+      this.changeCity(city);
+      // this.$store.commit('changeCity', city);
+      this.$router.push('/');
+      // console.log(city)
+    },
+    ...mapMutations(['changeCity'])
+  },
   computed: {
-    hasNoData () {
-      return !this.list.length
-    }
+    hasNoData() {
+      return !this.list.length;
+    },
   },
   watch: {
     keyword() {
@@ -42,11 +56,11 @@ export default {
       }
       this.timer = setTimeout(() => {
         const result = [];
-        for (let i in this.cities) {
-          this.cities[i].forEach(value => {
+        for (const i in this.cities) {
+          this.cities[i].forEach((value) => {
             if (
-              value.spell.indexOf(this.keyword) > -1 ||
-              value.name.indexOf(this.keyword) > -1
+              value.spell.indexOf(this.keyword) > -1
+              || value.name.indexOf(this.keyword) > -1
             ) {
               result.push(value);
             }
@@ -54,8 +68,8 @@ export default {
         }
         this.list = result;
       }, 100);
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>

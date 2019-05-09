@@ -25,36 +25,36 @@
 </template>
 <script>
 export default {
-  name: "CityAlphabet",
+  name: 'CityAlphabet',
   props: {
-    cities: Object
+    cities: Object,
   },
   data() {
     return {
       touchStatus: false,
       startY: 0,
-      timer: null
+      timer: null,
     };
   },
-  updated () {
-    this.startY = this.$refs['A'][0].offsetTop
+  updated() {
+    this.startY = this.$refs.A[0].offsetTop;
   },
 
   computed: {
     letters() {
       const letters = [];
-      for (let i in this.cities) {
+      for (const i in this.cities) {
         letters.push(i);
       }
-      return letters; //['a','b','c']
+      return letters; // ['a','b','c']
     },
-    updated() {
-      
-    }
+    // updated() {
+
+    // },
   },
   methods: {
     handleLetterClick(e) {
-      this.$emit("change", e.target.innerText);
+      this.$emit('change', e.target.innerText);
       // console.log(e.target.innerText)
     },
     handleTouchStart() {
@@ -67,14 +67,14 @@ export default {
           clearTimeout(this.timer);
         }
         this.timer = setTimeout(() => {
-            // this.startY = this.$refs["A"][0].offsetTop;
+          // this.startY = this.$refs["A"][0].offsetTop;
           const touchY = e.touches[0].clientY - 79;
           //   console.log(touchY)
           console.log(this.startY);
           const index = Math.floor((touchY - this.startY) / 20);
           //   console.log(index)
           if (index >= 0 && index < this.letters.length) {
-            this.$emit("change", this.letters[index]);
+            this.$emit('change', this.letters[index]);
           }
         }, 16);
       }
@@ -82,8 +82,8 @@ export default {
 
     handleTouchEnd() {
       this.touchStatus = false;
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>

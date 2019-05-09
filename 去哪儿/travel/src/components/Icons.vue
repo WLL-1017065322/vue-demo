@@ -17,15 +17,15 @@
 
 <script>
 export default {
-  name: "HomeIcons",
+  name: 'HomeIcons',
   props: {
-    list: Array
+    list: Array,
   },
   data() {
     return {
       swiperOption: {
-        autoplay:false
-      }
+        autoplay: false,
+      },
       // imgLists: [
       //   {
       //     id: "1",
@@ -95,8 +95,8 @@ export default {
         pages[page].push(item);
       });
       return pages;
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped lang="scss">

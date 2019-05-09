@@ -8,7 +8,7 @@
         <div class="item-info">
           <p class="item-title">{{item.title}}</p>
           <p class="item-desc">{{item.desc}}</p>
-          
+
         </div>
       </li>
     </ul>
@@ -16,9 +16,9 @@
 </template>
 <script>
 export default {
-  name: "HomeWeekend",
-  props :{
-      list: Array
+  name: 'HomeWeekend',
+  props: {
+    list: Array,
   },
   data() {
     return {
@@ -53,7 +53,7 @@ export default {
       //   }
       // ]
     };
-  }
+  },
 };
 </script>
 <style lang="scss" scoped>
@@ -74,13 +74,13 @@ export default {
 // background-color: red;
 
 .item-info {
-  
+
   padding: 0.1rem;
 
   .item-title {
     line-height: 0.54rem;
     font-size: 0.32rem;
-  
+
 
     overflow: hidden;
     white-space: nowrap;
@@ -89,12 +89,12 @@ export default {
   .item-desc {
     line-height: 0.4rem;
     color: #ccc;
-  
+
 
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
   }
-  
+
 }
 </style>
