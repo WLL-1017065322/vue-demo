@@ -44,18 +44,19 @@ export default {
     letter: String,
   },
   computed: {
-       ...mapState({
-      currentCity: 'city'
-    })
+    ...mapState({
+      currentCity: 'city',
+    }),
   },
   methods: {
     handleCityClick(city) {
       this.changeCity(city);
-      // this.$store.commit('changeCity', city);
+      // this.$store.commit('changeCity', city);省略action
+      //this.$store.dispatch('changeCity', city)
       this.$router.push('/');
       // console.log(city)
     },
-    ...mapMutations(['changeCity'])
+    ...mapMutations(['changeCity']),
   },
   mounted() {
     this.scroll = new Bscroll(this.$refs.wrapper);

@@ -19,14 +19,15 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex'
+import { mapState, mapGetters } from 'vuex';
+
 export default {
   name: 'HomeHeader',
   computed: {
-      ...mapState(['city']),
-      
-      ...mapGetters(['doubleCity'])
-  }
+    ...mapState(['city']),
+
+    ...mapGetters(['doubleCity']),
+  },
 //   props: {
 //     city: String,
 //   },

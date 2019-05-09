@@ -25,15 +25,15 @@ export default new Vuex.Store({
       } catch (e) {}
     },
   },
-  actions: {
-    changeCity(ctx, city) {
-      // console.log(city)
-      ctx.commit('changeCity', city);
-    },
-  },
-  getters: {
-    doubleCity (state) {
-      return state.city + ' ' + state.city
-    }
-  }
+  // actions: {
+  //   changeCity(ctx, city) {
+  //     // console.log(city)
+  //     ctx.commit('changeCity', city);
+  //   },
+  // },
+  // getters: {
+  //   doubleCity(state) {
+  //     return `${state.city} ${state.city}`;
+  //   },
+  // },
 });
